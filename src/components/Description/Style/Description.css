@@ -1,0 +1,11 @@
+.DescriptionContainer {
+  background: none;
+  height: 70vh;
+  border: 1px solid black;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around; }
+  .DescriptionContainer h3 {
+    margin: 0; }
+  .DescriptionContainer p {
+    margin: 0; }

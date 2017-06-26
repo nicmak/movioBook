@@ -1,0 +1,18 @@
+$backgroundDescription:green;
+
+.DescriptionContainer {
+	background:none;
+	height:70vh;
+	border:1px solid black;
+	display: flex;
+	flex-flow:column;
+	justify-content:space-around;
+  
+  h3 {
+  	margin:0;
+
+  }
+  p {
+  	margin:0;
+  }
+}
