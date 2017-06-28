@@ -82,11 +82,11 @@ class SearchIndex extends Component {
 	render() {
 		const { value, suggestions } = this.props; 
 
-		 const inputProps = {
-      placeholder: 'Type a programming language',
-      value,
-      onChange: this.onChange
-    };
+	 const inputProps = {
+    placeholder: 'Type a programming language',
+    value,
+    onChange: this.onChange
+  };
 
 		return (
 			<Autosuggest
