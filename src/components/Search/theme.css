@@ -1,0 +1,28 @@
+.react-autosuggest__container {
+  margin: 2vw 0vw; }
+
+.react-autosuggest__input {
+  color: #fafafa;
+  background: none;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #00FC87;
+  outline: none; }
+
+::-webkit-input-placeholder {
+  color: #fafafa; }
+
+.react-autosuggest__suggestions-container {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  position: absolute;
+  z-index: 300; }
+
+.react-autosuggest__suggestion {
+  color: #fafafa;
+  font-family: "Oswald";
+  list-style: none;
+  margin: 1vw 0vw; }
+  .react-autosuggest__suggestion:hover {
+    cursor: pointer;
+    color: #00FC87; }

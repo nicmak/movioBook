@@ -3,6 +3,7 @@ import Autosuggest from 'react-autosuggest';
 import { connect } from 'react-redux';
 import { searchAction, suggestionAction } from '../../actions/searchActions'
 import _ from 'underscore';
+import theme from  './theme.css'
 
 const mapStateToProps = (state) => {
 	return {
@@ -30,7 +31,7 @@ class SearchIndex extends Component {
 	getSuggestionValue = suggestion => {
 		this.props.getMovieDetails(suggestion.id) 
 		return (
-			`${suggestion.original_title} ${suggestion.id}`
+			`${suggestion.original_title}`
 		)
 	}
 //-----------------------------------------------
@@ -82,7 +83,7 @@ class SearchIndex extends Component {
 	render() {
 		const { value, suggestions } = this.props; 
 		const inputProps = {
-	    placeholder: 'Type a programming language',
+	    placeholder: 'Search For A Movie',
 	    value,
 	    onChange: this.onChange
 	  };

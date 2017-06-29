@@ -1,0 +1,47 @@
+
+$brightGreen:#00FC87;
+$whiteColor: #fafafa;
+$headerFont: 'Oswald';
+
+
+
+.react-autosuggest__container {
+	margin:2vw 0vw;
+
+}
+
+.react-autosuggest__container--open {
+
+}
+
+.react-autosuggest__input {
+	color:$whiteColor;
+	background: none;
+  width: 100%;
+  border:none;
+  border-bottom: 2px solid $brightGreen;
+  outline:none;
+ }
+
+ ::-webkit-input-placeholder  {
+    color:$whiteColor;
+   }
+
+.react-autosuggest__suggestions-container {
+	width: 100%;
+	background: rgba(0, 0, 0, 0.85);
+	position: absolute;
+	z-index: 300
+}
+
+.react-autosuggest__suggestion {
+	color:$whiteColor;
+	font-family:$headerFont;
+	list-style: none;
+	margin:1vw 0vw;
+	&:hover {
+		cursor:pointer;
+		color:$brightGreen;
+
+	}
+}

@@ -78,18 +78,34 @@ class App extends Component {
     const { movieObject, contentAppear, showTrailer, hideTrailer } = this.props;
     return (
     <section>
+
+    <Row>
+    <Col
+      lg={3}
+      lgPush={3}
+      md={5}
+      sm={6}
+      smPush={3}
+    >
+       <Search
+        queryMovie = { this.queryMovie }
+        getMovieDetails = { this.getMovieDetails }
+      />
+    </Col>
+    </Row>
     { 
         !_.isEmpty(movieObject) && contentAppear ?
-        <div className='trailer'>
+        <Col 
+          className='trailer'
+          lg={6}
+          lgPush={3}
+          >
             <button className='closeButton' onClick={hideTrailer}>X</button>
             <iframe src={`https://www.youtube.com/embed/${movieObject.videos.results[0].key}?autoplay=1`}></iframe>
-        </div>
+        </Col>
         :null
     }
-        <Search
-          queryMovie = { this.queryMovie }
-          getMovieDetails = { this.getMovieDetails }
-        />
+    <Row>
     <Col 
       xs={6} 
       xsPush={3} 
@@ -102,6 +118,7 @@ class App extends Component {
         />
         <Poster/>
     </Col>
+    </Row>
     
     </section>
     );
