@@ -1,4 +1,7 @@
 
+$green: #00FC87;
+$white: #fafafa;
+
 
 .movieContent {
   // margin-top: 16vh;
@@ -22,6 +25,11 @@
 .closeButton {
   width:2vw;
   margin-bottom: 1vh;
+  outline:none;
+  border:2px solid $green;
+  color:$green;
+  background:$white;
+  border-radius:2px;
 }
 
 .CardContainer {

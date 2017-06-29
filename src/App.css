@@ -8,7 +8,12 @@
 
 .closeButton {
   width: 2vw;
-  margin-bottom: 1vh; }
+  margin-bottom: 1vh;
+  outline: none;
+  border: 2px solid #00FC87;
+  color: #00FC87;
+  background: #fafafa;
+  border-radius: 2px; }
 
 .CardContainer {
   background: rgba(0, 0, 0, 0.85); }
