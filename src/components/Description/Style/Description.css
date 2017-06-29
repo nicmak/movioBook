@@ -1,15 +1,41 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:100,400,700|Oswald");
 .DescriptionContainer {
   background: none;
-  height: 70vh;
-  border: 1px solid black;
-  display: flex;
-  flex-flow: column;
-  justify-content: space-around; }
+  color: white; }
   .DescriptionContainer h3 {
-    margin: 0; }
+    margin-top: 3vh;
+    color: #00FC87;
+    font-family: "Oswald"; }
   .DescriptionContainer p {
-    margin: 0; }
+    font-family: "Lato";
+    color: #ccc; }
 
 .TrailerButton {
-  margin-left: 29vw;
-  width: 10vw; }
+  border: 1px solid #00FC87;
+  background: none;
+  border-radius: 2vw;
+  padding: 0.3vw 1.5vw; }
+  .TrailerButton:hover {
+    color: #00FC87;
+    border: 1px solid #00FC87; }
+
+.HeaderContainer h1 {
+  color: #fafafa;
+  font-family: "Oswald"; }
+
+.StatsContainer {
+  margin-top: 1vw;
+  margin-right: 1vw; }
+  .StatsContainer .col-lg-6 {
+    margin: 0.5vw 0vw;
+    font-family: "Oswald";
+    color: #00FC87;
+    line-height: 1.5vh; }
+    .StatsContainer .col-lg-6 h4 {
+      margin: 0; }
+  .StatsContainer span {
+    color: #ccc;
+    font-family: "Lato"; }
+
+.PosterContainer {
+  padding: 0; }

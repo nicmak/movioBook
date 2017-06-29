@@ -1,28 +1,35 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
 
 .movieContent {
-  margin-top: 16vh;
+  // margin-top: 16vh;
+}
+
+.trailer {
+  position: absolute;
+  z-index: 300;
+  // margin-top: 32vh;
+  // margin-left: 27vw;
+  // display: flex;
+  // flex-flow: column;
+  // align-items: flex-end;
+  iframe {
+    width: 73vh;
+    height: 51vh;
+    border:none;
+  }
+}
+
+.closeButton {
+  width:2vw;
+  margin-bottom: 1vh;
+}
+
+.CardContainer {
+  background:rgba(0,0,0,.85);
+}
+
+.gridContainer {
+    background:rgba(0,0,0,.85);
+    padding:0;
+
 }

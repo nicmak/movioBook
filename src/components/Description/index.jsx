@@ -1,37 +1,69 @@
 import React, { Component } from 'react';
 import { Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import _ from 'underscore';
 
 import './Style/Description.css'
 
 // Components
 import Stats from './Stats'
 
-class IndexDescription extends Component {
-	render() {
-		return (
-      <Col 
-        className='DescriptionContainer'
-        sm={12} 
-        md={7}
-       >
-         <h1>The Grey</h1>
-         <button className='TrailerButton'>Play Trailer</button>
-         <h3> Live or Die on This Day.</h3>
-         <p>
-         	Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-         </p>
 
-         <h3>Survival, Adventure, Action</h3>
-         <p>
-           Paramount, Pixar, Disney
-         </p>
-         <Stats/>
+const mapStateToProps = (state) => {
+  return {
+    movieObject : state.movieReducer.selectedMovie
+  }
+}
+class IndexDescription extends Component {
+
+  // componentDidUpdate() {
+  //   document.body.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${this.props.movieObject.backdrop_path})`;
+  // }
+
+	render() {
+    const { movieObject, showTrailer } =this.props;
+    
+    const genres = !_.isEmpty(movieObject) ? movieObject.genres.map((genre, index) => {
+      return index !== movieObject.genres.length - 1 ? `${genre.name} | ` : `${genre.name}`
+    }) : null
+
+    const productionCompanies = !_.isEmpty(movieObject) ? movieObject.production_companies.map((company, index) => {
+      return index !== movieObject.production_companies.length - 1 ? `${company.name} | ` : `${company.name}`
+    }) : null
+    
+		return (
+      <Col className='DescriptionContainer'
+        xs={12}
+        md={8}
+        mdPush={4}
+        lg={7}
+        lgPush={5}
+      >
+         <div className='HeaderContainer'>
+           <h1>{movieObject.title}</h1>
+           <button 
+             className='TrailerButton'
+             onClick={showTrailer}
+           >
+             Watch Trailer
+           </button>
+         </div>
+         <h3>{movieObject.tagline}</h3>
+         <p>{movieObject.overview}</p>
+         <h3>{genres}</h3>
+         <p>{productionCompanies}</p>
+         {
+          movieObject ?
+            <Stats
+              movieObject = {movieObject}
+            />
+          : null
+         }
       </Col>
 		)
 	}
 }
 
-IndexDescription = connect(null, null)(IndexDescription);
+IndexDescription = connect(mapStateToProps, null)(IndexDescription);
 
 export default IndexDescription;

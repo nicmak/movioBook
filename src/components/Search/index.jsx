@@ -2,45 +2,7 @@ import React, {Component} from 'react';
 import Autosuggest from 'react-autosuggest';
 import { connect } from 'react-redux';
 import { searchAction, suggestionAction } from '../../actions/searchActions'
-
-
-const languages = [
-  {
-  	name:'C',
-  	year:1972
-  },
-  {
-  	name:'Elm',
-  	year:2012
-  }
-];
-
-//Teaching AutoSuggest to calculate suggestions for inputs
-const getSuggestions = (value) => {
-	//remove input of white spaces
-	const inputValue = value.trim().toLowerCase();
-	//measuring length of input value without the white spaces
-	const inputLength = inputValue.length;
-	// returns an array, if inputLength exists, we 
-	//will get an array where suggestion values are equal to existing values
-	return inputLength === 0 ? [] : languages.filter ((lang) => {
-		return lang.name.toLowerCase().slice(0, inputLength) === inputValue
-	})
-};
-
-
-
-// When suggestion is clicked, autoSuggest needs to populate
-//the input based on the clicked suggestion. Teach AutoSuggest 
-// how to calculate the input value for every given suggestion.
-const getSuggestionValue = suggestion => suggestion.name;
-
-// Use your imagination to render suggestions.
-const renderSuggestion = suggestion => (
-  <div>
-    {suggestion.name}
-  </div>
-);
+import _ from 'underscore';
 
 const mapStateToProps = (state) => {
 	return {
@@ -59,18 +21,56 @@ const mapDispatchToProps = (dispatch) => {
 		}
 	}
 }
-//  default value: "", suggestions:[]
+
 class SearchIndex extends Component {
 
-	onChange = (event) => {
-    this.props.sendInput(event.target.value)
+// ---------------------------------------------
+// Function is fired, when a suggestion is clicked on, it will
+// return an input value to the input box 
+	getSuggestionValue = suggestion => {
+		this.props.getMovieDetails(suggestion.id) 
+		return (
+			`${suggestion.original_title} ${suggestion.id}`
+		)
 	}
+//-----------------------------------------------
+	// Use your imagination to render suggestions.
+	// basically how you want to display your suggestions/content
+	renderSuggestion = suggestion => (
+	  <div>
+	    {`${suggestion.original_title}:${suggestion.popularity}`}
+	  </div>
+	);
+//--------------------------------------------------
 
-//AutoSuggest will call this function every time you need to 
-// update suggestions
+	getSuggestions = (value) => {
+	  console.log(value,'getSuggestions')
+	  const inputValue = value.trim().toLowerCase();
+	  const inputLength = inputValue.length;
+	  return []
+  };
+// ----------------------------------------------------
+
+//  onChange function, will only call the API for searching movies
+//  when the input in the search is more than two characters and also when
+// the last character value is not a blank space, this will reduce the number of
+// api calls 
+
+	onChange = async (event, { newValue }) => {
+		const { sendInput, queryMovie, sendSuggestions } = this.props;
+	  sendInput(newValue)
+	  if (newValue.length >= 2 && newValue.slice(-1) !== " ") {
+	    let results = await queryMovie(newValue)
+	    let topSix = _.sortBy(results.results,'popularity').reverse().slice(0,6)
+	    sendSuggestions(topSix)
+	  }
+	}
+// --------------------------------------------------------
+
+//AutoSuggest will call this function every time you need to update suggestions
 	onSuggestionsFetchRequested = ({ value }) => {
 		console.log('suggestionFetch')
-    this.props.sendSuggestions(getSuggestions(value))
+    this.props.sendSuggestions(this.getSuggestions(value))
 	}
 
 //AutoSuggest will call this function every time you clear suggestions
@@ -81,23 +81,20 @@ class SearchIndex extends Component {
 
 	render() {
 		const { value, suggestions } = this.props; 
-
-	 const inputProps = {
-    placeholder: 'Type a programming language',
-    value,
-    onChange: this.onChange
-  };
-
+		const inputProps = {
+	    placeholder: 'Type a programming language',
+	    value,
+	    onChange: this.onChange
+	  };
 		return (
 			<Autosuggest
-			  suggestions = { suggestions }
-			  onSuggestionsFetchRequested = {this.onSuggestionsFetchRequested}
-			  onSuggestionsClearRequested = { this.onSuggestionsClearRequested }
-			  getSuggestionValue = { getSuggestionValue }
-			  renderSuggestion={ renderSuggestion }
-			  inputProps = { inputProps }
+			  suggestions={suggestions}
+        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+        getSuggestionValue={this.getSuggestionValue}
+        renderSuggestion={this.renderSuggestion}
+        inputProps={inputProps}
 			/>
-		  
 		)
 	}
 }
