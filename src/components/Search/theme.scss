@@ -35,13 +35,13 @@ $headerFont: 'Oswald';
 }
 
 .react-autosuggest__suggestion {
-	color:$whiteColor;
+	color:$brightGreen;
 	font-family:$headerFont;
 	list-style: none;
 	margin:1vw 0vw;
 	&:hover {
 		cursor:pointer;
-		color:$brightGreen;
+		color:white;
 
 	}
 }

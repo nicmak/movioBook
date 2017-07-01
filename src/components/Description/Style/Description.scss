@@ -27,6 +27,7 @@ $headers: #00FC87;
   background: none;
   border-radius: 2vw;
   padding: 0.3vw 1.5vw;
+  outline:none;
   &:hover {
   	color:$headers;
   	border: 1px solid $headers;
@@ -43,8 +44,7 @@ $headers: #00FC87;
 }
 
 .StatsContainer {
-	margin-top:1vw;
-	margin-right:1vw;
+	padding:3vw 0vw;
 	.col-lg-6 {
 		margin:0.5vw 0vw;
 		font-family:$headerFont;

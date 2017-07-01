@@ -16,9 +16,9 @@ const mapStateToProps = (state) => {
 }
 class IndexDescription extends Component {
 
-  componentDidUpdate() {
-    document.body.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${this.props.movieObject.backdrop_path}`;
-  }
+  // componentDidUpdate() {
+  //   document.body.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${this.props.movieObject.backdrop_path}`;
+  // }
 
 	render() {
     const { movieObject, showTrailer } =this.props;

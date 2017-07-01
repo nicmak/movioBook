@@ -14,7 +14,8 @@
   border: 1px solid #00FC87;
   background: none;
   border-radius: 2vw;
-  padding: 0.3vw 1.5vw; }
+  padding: 0.3vw 1.5vw;
+  outline: none; }
   .TrailerButton:hover {
     color: #00FC87;
     border: 1px solid #00FC87; }
@@ -24,8 +25,7 @@
   font-family: "Oswald"; }
 
 .StatsContainer {
-  margin-top: 1vw;
-  margin-right: 1vw; }
+  padding: 3vw 0vw; }
   .StatsContainer .col-lg-6 {
     margin: 0.5vw 0vw;
     font-family: "Oswald";

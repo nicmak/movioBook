@@ -74,52 +74,66 @@ class App extends Component {
     this.getMovieDetails(75174)
   }
 
+
   render() {
     const { movieObject, contentAppear, showTrailer, hideTrailer } = this.props;
     return (
-    <section>
-
-    <Row>
-    <Col
-      lg={3}
-      lgPush={3}
-      md={5}
-      sm={6}
-      smPush={3}
+    <section
+      className='outerContainer'
+      style={{backgroundImage:`url(https://image.tmdb.org/t/p/original${this.props.movieObject.backdrop_path}`}}
     >
-       <Search
-        queryMovie = { this.queryMovie }
-        getMovieDetails = { this.getMovieDetails }
-      />
-    </Col>
-    </Row>
-    { 
+      <div className='shadowContainer'>
+      <Row style={contentAppear ?{opacity:'0.5'} :null}>
+        <Col
+          lg={3}
+          lgPush={3}
+          md={5}
+          sm={6}
+          smPush={3}
+          xs={6}
+          xsPush={3}
+        >
+          <Search
+            queryMovie = { this.queryMovie }
+            getMovieDetails = { this.getMovieDetails }
+          />
+        </Col>
+      </Row>
+      { 
         !_.isEmpty(movieObject) && contentAppear ?
         <Col 
           className='trailer'
           lg={6}
           lgPush={3}
+          md={6}
+          mdPush={3}
+          sm={10}
           >
             <button className='closeButton' onClick={hideTrailer}>X</button>
             <iframe src={`https://www.youtube.com/embed/${movieObject.videos.results[0].key}?autoplay=1`}></iframe>
         </Col>
         :null
-    }
-    <Row>
-    <Col 
-      xs={6} 
-      xsPush={3} 
-      md={8}
-      lg={6} 
-      lgPush={3} 
-      className='gridContainer'>
-        <Description
-          showTrailer = {showTrailer}
-        />
-        <Poster/>
-    </Col>
-    </Row>
-    
+      }
+      <Row style={contentAppear ?{opacity:'0.5'} :null} >
+        <Col 
+          xs={8}
+          xsPush={2} 
+          sm={6}
+          smPush={3}
+          md={8}
+          mdPull={2}
+          lg={6} 
+          lgPush={3} 
+          className='gridContainer'>
+            <Description
+              showTrailer = {showTrailer}
+            />
+            <Poster/>
+        </Col>
+      </Row>
+      <Row>
+      </Row>
+      </div>
     </section>
     );
   }

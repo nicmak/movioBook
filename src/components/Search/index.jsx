@@ -7,8 +7,9 @@ import theme from  './theme.css'
 
 const mapStateToProps = (state) => {
 	return {
-		value:state.SearchReducer.value,
-		suggestions:state.SearchReducer.suggestions
+		value : state.SearchReducer.value,
+		suggestions : state.SearchReducer.suggestions,
+		contentAppear : state.movieReducer.contentAppear
 	}
 }
 
@@ -39,7 +40,7 @@ class SearchIndex extends Component {
 	// basically how you want to display your suggestions/content
 	renderSuggestion = suggestion => (
 	  <div>
-	    {`${suggestion.original_title}:${suggestion.popularity}`}
+	    {`${suggestion.original_title}`}
 	  </div>
 	);
 //--------------------------------------------------
@@ -81,11 +82,12 @@ class SearchIndex extends Component {
   }
 
 	render() {
-		const { value, suggestions } = this.props; 
+		const { value, suggestions, contentAppear } = this.props; 
 		const inputProps = {
 	    placeholder: 'Search For A Movie',
 	    value,
-	    onChange: this.onChange
+	    disabled: contentAppear,
+	    onChange: this.onChange,
 	  };
 		return (
 			<Autosuggest
