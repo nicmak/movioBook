@@ -8,12 +8,12 @@ MovioBook is a React-ReduxJS application that loads data from the [The Movie Dat
 ## Tools that were used to make this application
 
 
-*[ReactJS](https://facebook.github.io/react/)
-*[Create-React-App](https://github.com/facebookincubator/create-react-app)
-*[ReduxJS](http://redux.js.org/)
-*[React AutoSuggest](https://github.com/moroshko/react-autosuggest)
-*[React BootStrap](https://react-bootstrap.github.io/)
-*[SASS](http://sass-lang.com/)
+* [ReactJS](https://facebook.github.io/react/)
+* [Create-React-App](https://github.com/facebookincubator/create-react-app)
+* [ReduxJS](http://redux.js.org/)
+* [React AutoSuggest](https://github.com/moroshko/react-autosuggest)
+* [React BootStrap](https://react-bootstrap.github.io/)
+* [SASS](http://sass-lang.com/)
 
 ## Installation
 
