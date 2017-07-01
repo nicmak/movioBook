@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MovioBook - Way to Search and Binge Watch Movie Trailers
 
 MovioBook is a React-ReduxJS application that loads data from the [The Movie Database (TMDb)](https://www.themoviedb.org/?language=en)
@@ -25,3 +26,4 @@ MovioBook is a React-ReduxJS application that loads data from the [The Movie Dat
 # Author
 
 Nicholas Mak 
+
