@@ -20,7 +20,7 @@ MovioBook is a React-ReduxJS application that loads data from the [The Movie Dat
 1. Clone the Repo
 2. cd moviobook
 3. npm install
-4  npm start
+4.  npm start
 
 ## Author
 
