@@ -5,7 +5,7 @@ import { firstAction } from './actions/appActions';
 import { sendMovie, showContent, hideContent } from './actions/movieActions';
 import { Grid,Col, Row, ResponsiveEmbed } from 'react-bootstrap';
 import request from 'superagent';
-import {APIKEY} from './key';
+// import {APIKEY} from './key';
 import _ from 'underscore';
 
 // -----Components-----------------
@@ -13,6 +13,7 @@ import Description from './components/Description';
 import Poster from './components/Poster';
 import Search from './components/Search';
 
+const APIKEY = 'e364114ad70fa46fc8bfc7ec86b1326c';
 
 const mapDispatchToProps = (dispatch) => {
   return {
