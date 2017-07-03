@@ -106,9 +106,11 @@ class App extends Component {
           className='trailer'
           lg={6}
           lgPush={3}
-          md={6}
-          mdPush={3}
+          md={10}
+          mdPush={1}
           sm={10}
+          smPush={1}
+          xs={12}
           >
             <button className='closeButton' onClick={hideTrailer}>X</button>
             <iframe src={`https://www.youtube.com/embed/${movieObject.videos.results[0].key}?autoplay=1`}></iframe>

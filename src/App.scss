@@ -30,13 +30,12 @@ $white: #fafafa;
 }
 
 .closeButton {
-  width:2vw;
   margin-bottom: 1vh;
   outline:none;
   border:2px solid $green;
   color:$green;
   background:$white;
-  border-radius:2px;
+  border-radius:2vw;
 }
 
 .CardContainer {
