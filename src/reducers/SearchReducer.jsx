@@ -3,7 +3,7 @@ let initialState = {
   suggestions:[]
 }
 
-export const SearchReducer = ( state= initialState, action) => {
+export const SearchReducer = ( state = initialState, action) => {
   switch (action.type) {
   	case 'INPUT_VALUE' : {
   		return {

@@ -2,7 +2,7 @@
   "name": "moviobook",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://nicmak.github.io/moviobook",
+  "homepage": "https://nicmak.github.io/movioBook",
   "dependencies": {
     "gh-pages": "^1.0.0",
     "react": "^15.6.1",

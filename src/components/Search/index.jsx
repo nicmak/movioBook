@@ -3,7 +3,7 @@ import Autosuggest from 'react-autosuggest';
 import { connect } from 'react-redux';
 import { searchAction, suggestionAction } from '../../actions/searchActions'
 import _ from 'underscore';
-import theme from  './theme.css'
+import theme from './theme.css'
 
 const mapStateToProps = (state) => {
 	return {
