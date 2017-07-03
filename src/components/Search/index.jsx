@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Autosuggest from 'react-autosuggest';
 import { connect } from 'react-redux';
-import { searchAction, suggestionAction } from '../../actions/searchActions'
+import { searchAction, suggestionAction, clearValue, clearSuggestionValues } from '../../actions/searchActions'
 import _ from 'underscore';
 import theme from './theme.css'
 
@@ -17,6 +17,9 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		sendInput : (value) => {
 			dispatch(searchAction(value))
+		},
+		clearInput: (value) => {
+			dispatch(clearValue())
 		},
 		sendSuggestions : (suggestionArray) => {
 			dispatch(suggestionAction(suggestionArray))
@@ -73,12 +76,17 @@ class SearchIndex extends Component {
 	onSuggestionsFetchRequested = ({ value }) => {
 		console.log('suggestionFetch')
     this.props.sendSuggestions(this.getSuggestions(value))
+    this.onSuggestionsClearRequested();
 	}
 
 //AutoSuggest will call this function every time you clear suggestions
   onSuggestionsClearRequested = () => {
   	console.log('suggestionCleared')
   	this.props.sendSuggestions([])
+  }
+
+  clearEverything = () => {
+  	this.props.clearInput();
   }
 
 	render() {
@@ -88,6 +96,7 @@ class SearchIndex extends Component {
 	    value,
 	    disabled: contentAppear,
 	    onChange: this.onChange,
+	    onClick: this.clearEverything
 	  };
 		return (
 			<Autosuggest
