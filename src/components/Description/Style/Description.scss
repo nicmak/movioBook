@@ -11,6 +11,7 @@ $headers: #00FC87;
 .DescriptionContainer {
 	background:none;
 	color:white;  
+	z-index:1;
   h3 {
   	margin-top:3vh;
 		color:$headers;
