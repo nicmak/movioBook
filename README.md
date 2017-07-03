@@ -4,6 +4,8 @@ MovioBook is a React-ReduxJS application that loads data from the [The Movie Dat
 
 <a href="https://imgflip.com/gif/1ruem7"><img src="https://i.imgflip.com/1ruem7.gif" title="made at imgflip.com"/></a>
 
+## GitHub Pages Demo
+[movioBook Demo](https://nicmak.github.io/movioBook/)
 
 ## Tools that were used to make this application
 
